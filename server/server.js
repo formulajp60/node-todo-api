@@ -19,7 +19,8 @@ app.post('/todos', (req, res)=> {
     });
 
     todo.save().then((doc)=>{
-        res.send(doc)
+        res.send(doc);
+        console.log(doc);
     }, (e)=> {
         res.status(400).send(e);
     });
@@ -31,6 +32,7 @@ app.post('/users', (req, res)=>{
     });
 
     user.save().then((doc)=>{
+        console.log(doc.email);
         res.send(doc);
     }, (e)=>{
         res.status(400).send(e);
@@ -41,5 +43,5 @@ app.listen(3000, ()=>{
     console.log('started on port 3000');
 });
 
-
+module.exports = {app};
 
